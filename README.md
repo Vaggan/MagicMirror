@@ -22,7 +22,7 @@ MagicMirror² focuses on a modular plugin system and uses [Electron](http://elec
 - [community](#community)
 - [Contributing Guidelines](#contributing-guidelines)
 
-## Usage
+Modify `js/config.js` to change some general variables (language, weather location, compliments, news feed RSS and to add your own ICS calendars)
 
 #### Raspberry Pi Support
 Electron, the app wrapper around MagicMirror², only supports the Raspberry Pi 2 & 3. The Raspberry Pi 1 is currently **not** supported. If you want to run this on a Raspberry Pi 1, use the [server only](#server-only) feature and setup a fullscreen browser yourself.
@@ -55,7 +55,9 @@ The following wiki links are helpful in the configuration of your MagicMirror² 
 - [Configuring the Raspberry Pi](https://github.com/MichMich/MagicMirror/wiki/Configuring-the-Raspberry-Pi)
 - [Auto Starting MagicMirror](https://github.com/MichMich/MagicMirror/wiki/Auto-Starting-MagicMirror)
 
-#### Updating you MagicMirror²
+Updates the time on the screen on one second interval. Can be changed to omit displaying seconds by adding the config option ```displaySeconds = false``` in [config.js](js/config.js). When the seconds are disabled the interval is set to 60 seconds on the full minute.
+
+With the option ```digitFade = true```, changing digits are faded. This looks best if the seconds are omitted.
 
 If you want to update your MagicMirror² to the latest version, use your terminal to go to your Magic Mirror folder and type the following command:
 
@@ -68,14 +70,14 @@ Type `git status` to see your changes, if there are any, you can reset them with
 
 ## Configuration
 
-1. Duplicate `config/config.js.sample` to `config/config.js`.
+##Modules
 2. Modify your required settings.
 
-The following properties can be configured:
+###[MagicMirror-Modules by PaViRo](https://github.com/paviro/MagicMirror-Modules)
 
 
 | **Option** | **Description** |
-| --- | --- |
+
 | `port` | The port on which the MagicMirror² server will run on. The default value is `8080`. |
 | `kioskmode` | This allows MagicMirror² to run in Kiosk Mode. It protects from other programs popping on top of your screen. The default value is `false`|
 | `language` | The language of the interface. (Note: Not all elements will be localized.) Possible values are `en`, `nl`, `ru`, `fr`, etc., but the default value is `en`. |

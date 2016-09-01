@@ -202,8 +202,13 @@ sup {
   transform: translateY(-50%);
 }
 
-.region.upper.third {
-  top: 33%;
+.calendar-table .calendar-icon {
+  width: 1em;
+  min-width: 1em;
+  margin-right: 5px;
+  text-align: center;
+}
+
 }
 
 .region.middle.center {
