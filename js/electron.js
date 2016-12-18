@@ -18,11 +18,25 @@ const BrowserWindow = electron.BrowserWindow;
 let mainWindow;
 
 function createWindow() {
+	//Start on secondary monitor
+	var electronScreen = electron.screen;
+	var displays = electronScreen.getAllDisplays();
+	var externalDisplay = null;
+	for (var i in displays) {
+		if (displays[i].bounds.x != 0 || displays[i].bounds.y != 0) {
+			externalDisplay = displays[i];
+			break;
+		}
+	}
+
+	var x = externalDisplay?externalDisplay.bounds.x:0;
+	var y = externalDisplay?externalDisplay.bounds.y:0;
+
 	// Create the browser window.
 	if (config.kioskmode) {
-		mainWindow = new BrowserWindow({width: 800, height: 600, x: 0, y: 0, kiosk:true, darkTheme: true, webPreferences: {nodeIntegration: false}});
+		mainWindow = new BrowserWindow({width: 800, height: 600, x: x, y: y, kiosk:true, darkTheme: true, webPreferences: {nodeIntegration: false}});
 	} else {
-		mainWindow = new BrowserWindow({width: 800, height: 600, x: 0, y: 0, fullscreen: true, autoHideMenuBar: true, darkTheme: true, webPreferences: {nodeIntegration: false}});
+		mainWindow = new BrowserWindow({width: 800, height: 600, x: x, y: y, fullscreen: true, autoHideMenuBar: true, darkTheme: true, webPreferences: {nodeIntegration: false}});
 	}
 
 	// and load the index.html of the app.
