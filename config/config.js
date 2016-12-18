@@ -20,6 +20,10 @@ var config = {
 			position: 'top_left'
 		},
 		{
+			module: 'MMM-VoiceRecognition',
+			position: 'top_left'
+		},
+		{
 			module: 'calendar',
 			header: 'Helgdagar',
 			position: 'top_left',
